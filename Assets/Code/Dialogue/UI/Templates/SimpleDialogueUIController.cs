@@ -16,11 +16,14 @@ namespace DialogueSystem
         // Methods
         public override void Hide()
         {
+            if (dialogueSpeakerText != null) { dialogueSpeakerText.text = string.Empty; }
             uiMenu.SetActive(false);
         }
 
         public override void Show()
         {
+            if (dialogueTextbox != null) { dialogueTextbox.gameObject.SetActive(useTextbox); }
+            if (dialogueSpeaker != null) { dialogueSpeaker.SetActive(useSpeakerName); }
             uiMenu.SetActive(true);
         }
 
@@ -49,6 +52,11 @@ namespace DialogueSystem
 
         public override void UpdateUI(string line, string speaker)
         {
+            if (dialogueSpeakerText != null)
+            {
+                dialogueSpeakerText.text = speaker;
+            }
+            
             if (useTypewriter)
             {
                 StartCoroutine(typewriter.TypeLine(line, dialogueText));

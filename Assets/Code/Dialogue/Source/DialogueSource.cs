@@ -12,7 +12,7 @@ namespace DialogueSystem
         // Configuration
         [SerializeField] private string[] lines;
         [SerializeField] private string sourceName;
-        [SerializeField] private bool useName;
+        public bool useName;
 
         // Behavior
         private int _currIndex;

@@ -27,6 +27,7 @@ namespace DialogueSystem
         public void StartDialogue(DialogueSource source)
         {
             // Enable all sub-components of system
+            uiController.Setup(source.useName);
             uiController.Show();
 
             // Set new speaker
